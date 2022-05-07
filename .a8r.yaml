@@ -1,0 +1,5 @@
+k8s_config:
+- manifest_path: /frontend-mapping.yaml
+  cluster_info:
+    cluster_id: f72f1aa1-23af-56a6-9f05-a957e1e26d4f
+    cluster_name: prod-test-cluster
