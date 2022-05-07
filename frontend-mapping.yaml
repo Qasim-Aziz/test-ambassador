@@ -11,5 +11,5 @@ spec:
     retry_on: 5xx
     num_retries: 1
     per_try_timeout: 0.150s
-  hostname: qaapi.flyme247.com
+  hostname: qa.flyme247.com
   prefix: /
