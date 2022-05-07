@@ -3,13 +3,17 @@ kind: Mapping
 metadata:
   name: frontend-mapping-1651931063960
   namespace: qa
+  labels: null
+  annotations: {}
 spec:
-  service: frontend.qa:80
-  timeout_ms: 3000
+  ambassador_id:
+  - default
   connect_timeout_ms: 3000
-  retry_policy:
-    retry_on: 5xx
-    num_retries: 1
-    per_try_timeout: 0.150s
   hostname: qa.flyme247.com
   prefix: /
+  retry_policy:
+    num_retries: 1
+    per_try_timeout: 0.150s
+    retry_on: 5xx
+  service: frontend.qa:80
+  timeout_ms: 3000
