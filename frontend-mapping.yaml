@@ -1,19 +1,17 @@
-apiVersion: getambassador.io/v3alpha1
+apiVersion: getambassador.io/v2
 kind: Mapping
 metadata:
-  name: frontend-mapping-1651931063960
+  name: qafrontend-mapping
   namespace: qa
-  labels: null
-  annotations: {}
+  labels:
+    hostname: qa.flyme247.com
 spec:
-  ambassador_id:
-  - default
-  connect_timeout_ms: 3000
-  hostname: qa.flyme247.com
+  hostname: "https://qa.flyme247.com"
   prefix: /
-  retry_policy:
-    num_retries: 1
-    per_try_timeout: 0.150s
-    retry_on: 5xx
-  service: frontend.qa:80
-  timeout_ms: 3000
+  rewrite: /
+  service: frontend:80
+  bypass_auth: true
+  timeout_ms: 60000
+  cors:
+    origins: "*"
+    methods: PUT, POST, GET, DELETE, PATCH, OPTIONS
