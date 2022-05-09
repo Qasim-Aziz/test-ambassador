@@ -11,3 +11,7 @@ k8s_config:
   cluster_info:
     cluster_id: f72f1aa1-23af-56a6-9f05-a957e1e26d4f
     cluster_name: prod-test-cluster
+- manifest_path: accounting-mapping.yaml
+  cluster_info:
+    cluster_id: 2a13a515-c3b5-5f84-a561-49f3fcb30815
+    cluster_name: Qasim Aziz's cluster
