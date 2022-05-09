@@ -1,17 +1,28 @@
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: Mapping
 metadata:
-  name: qafrontend-mapping
+  name: qabooking-mapping
   namespace: qa
   labels:
-    hostname: qa.flyme247.com
+    hostname: qaapi.flyme247.com
+  annotations: {}
 spec:
-  hostname: "https://qa.flyme247.com"
-  prefix: /
-  rewrite: /
-  service: frontend:80
+  allow_upgrade:
+  - websocket
   bypass_auth: true
-  timeout_ms: 60000
   cors:
-    origins: "*"
-    methods: PUT, POST, GET, DELETE, PATCH, OPTIONS
+    exposed_headers:
+    - Authorization, content-type
+    headers:
+    - Authorization, content-type
+    max_age: "86400"
+    methods:
+    - PUT, POST, GET, DELETE, PATCH, OPTIONS
+    origins:
+    - "*"
+    v2CommaSeparatedOrigins: true
+  hostname: qaapi.flyme247.com
+  prefix: /booking/
+  rewrite: /
+  service: booking:80
+  timeout_ms: 200000
